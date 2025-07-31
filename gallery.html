@@ -1,64 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Les Ruchers de l’Orée - Galerie photos</title>
+  <title>Les Ruchers de l'Orée - Galerie photos</title>
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    /* Styles spécifiques à la galerie */
-    main.gallery {
-      max-width: 1100px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    h2 {
-      text-align: center;
-      color: #3a2f0b;
-      margin-bottom: 2rem;
-    }
-
-    .masonry {
-      column-count: 3;
-      column-gap: 1rem;
-    }
-
-    /* Pour écrans plus petits */
-    @media (max-width: 900px) {
-      .masonry {
-        column-count: 2;
-      }
-    }
-    @media (max-width: 600px) {
-      .masonry {
-        column-count: 1;
-      }
-    }
-
-    .masonry-item {
-      break-inside: avoid;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(58, 47, 11, 0.1);
-      transition: transform 0.3s ease;
-      cursor: zoom-in;
-    }
-
-    .masonry-item img {
-      width: 100%;
-      display: block;
-      border-radius: 8px;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .masonry-item:hover img,
-    .masonry-item:focus-within img {
-      transform: scale(1.05);
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -66,6 +13,7 @@
       <ul>
         <li><a href="index.html">Accueil</a></li>
         <li><a href="products.html">Nos produits</a></li>
+        <li><a href="elevage.html" >Notre élevage</a></li>
         <li><a href="gallery.html" aria-current="page">Photos</a></li>
         <li><a href="contact.html">Nous contacter</a></li>
       </ul>
@@ -75,37 +23,135 @@
   <main class="gallery">
     <h2>Galerie photos</h2>
 
-    <div class="masonry" tabindex="0" aria-label="Galerie photos des ruchers et miels">
-      <div class="masonry-item">
-        <img src="images/gallery1.jpg" alt="Ruche au lever du soleil dans les Cévennes" loading="lazy" />
+    <div class="gallery-grid" role="grid" aria-label="Galerie photos des ruchers et miels">
+      <div class="gallery-item" tabindex="0" role="button">
+        <img src="images/gallery1.jpg" alt="[photo1]consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore" loading="lazy" />
       </div>
-      <div class="masonry-item">
-        <img src="images/gallery2.jpg" alt="Pot de miel artisanal entouré de fleurs sauvages" loading="lazy" />
+      
+      <div class="gallery-item" tabindex="0" role="button">
+        <img src="images/gallery2.jpg" alt="[photo2]consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore" loading="lazy" />
       </div>
-      <div class="masonry-item">
-        <img src="images/gallery3.jpg" alt="Abeilles sur une fleur de lavande" loading="lazy" />
+      
+      <div class="gallery-item" tabindex="0" role="button">
+        <img src="images/gallery3.jpg" alt="[photo3]consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore" loading="lazy" />
       </div>
-      <div class="masonry-item">
-        <img src="images/gallery4.jpg" alt="Paysage des Cévennes avec collines et arbres" loading="lazy" />
+      
+      <div class="gallery-item" tabindex="0" role="button">
+        <img src="images/gallery4.jpg" alt="[photo4]consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore" loading="lazy" />
       </div>
-      <div class="masonry-item">
-        <img src="images/gallery5.jpg" alt="Apiculteur récoltant le miel avec un enfumoir" loading="lazy" />
-      </div>
-      <div class="masonry-item">
-        <img src="images/gallery6.jpg" alt="Fleurs sauvages colorées près des ruchers" loading="lazy" />
-      </div>
-      <div class="masonry-item">
-        <img src="images/gallery7.jpg" alt="Gros plan sur une abeille en vol" loading="lazy" />
-      </div>
-      <div class="masonry-item">
-        <img src="images/gallery8.jpg" alt="Pot de miel sur une table en bois rustique" loading="lazy" />
-      </div>
-      <div class="masonry-item">
-        <img src="images/gallery9.jpg" alt="Lever de soleil sur les collines des Cévennes" loading="lazy" />
+      
+      <div class="gallery-item" tabindex="0" role="button">
+        <img src="images/gallery5.jpg" alt="[photo4]consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore" loading="lazy" />
       </div>
     </div>
   </main>
 
-  <script src="js/script.js"></script>
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-img">
+    <div class="lightbox-content">
+      <button class="lightbox-close" aria-label="Fermer la galerie">&times;</button>
+      <button class="lightbox-nav lightbox-prev" aria-label="Image précédente">&#8249;</button>
+      <img id="lightbox-img" src="" alt="" />
+      <button class="lightbox-nav lightbox-next" aria-label="Image suivante">&#8250;</button>
+      <div class="lightbox-description" id="lightbox-description"></div>
+    </div>
+  </div>
+
+  <script>
+    class Gallery {
+      constructor() {
+        this.lightbox = document.getElementById('lightbox');
+        this.lightboxImg = document.getElementById('lightbox-img');
+        this.lightboxDesc = document.getElementById('lightbox-description');
+        this.galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+        this.currentIndex = 0;
+        
+        this.init();
+      }
+      
+      init() {
+        // Événements sur les images
+        this.galleryItems.forEach((item, index) => {
+          item.addEventListener('click', () => this.openLightbox(index));
+          item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              this.openLightbox(index);
+            }
+          });
+        });
+        
+        // Événements lightbox
+        if (this.lightbox.querySelector('.lightbox-close')) {
+          this.lightbox.querySelector('.lightbox-close').addEventListener('click', () => this.closeLightbox());
+        }
+        if (this.lightbox.querySelector('.lightbox-prev')) {
+          this.lightbox.querySelector('.lightbox-prev').addEventListener('click', () => this.prevImage());
+        }
+        if (this.lightbox.querySelector('.lightbox-next')) {
+          this.lightbox.querySelector('.lightbox-next').addEventListener('click', () => this.nextImage());
+        }
+        
+        // Fermer en cliquant sur le fond
+        this.lightbox.addEventListener('click', (e) => {
+          if (e.target === this.lightbox) this.closeLightbox();
+        });
+        
+        // Navigation clavier
+        document.addEventListener('keydown', (e) => {
+          if (!this.lightbox.classList.contains('active')) return;
+          
+          switch(e.key) {
+            case 'Escape':
+              this.closeLightbox();
+              break;
+            case 'ArrowRight':
+              this.nextImage();
+              break;
+            case 'ArrowLeft':
+              this.prevImage();
+              break;
+          }
+        });
+      }
+      
+      openLightbox(index) {
+        this.currentIndex = index;
+        this.updateLightboxImage();
+        this.lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Empêcher scroll
+      }
+      
+      closeLightbox() {
+        this.lightbox.classList.remove('active');
+        document.body.style.overflow = ''; // Restaurer scroll
+      }
+      
+      nextImage() {
+        this.currentIndex = (this.currentIndex + 1) % this.galleryItems.length;
+        this.updateLightboxImage();
+      }
+      
+      prevImage() {
+        this.currentIndex = (this.currentIndex - 1 + this.galleryItems.length) % this.galleryItems.length;
+        this.updateLightboxImage();
+      }
+      
+      updateLightboxImage() {
+        const item = this.galleryItems[this.currentIndex];
+        const img = item.querySelector('img');
+        
+        if (img) {
+          this.lightboxImg.src = img.src;
+          this.lightboxImg.alt = img.alt;
+          this.lightboxDesc.textContent = img.alt;
+        }
+      }
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      new Gallery();
+    });
+  </script>
 </body>
 </html>
