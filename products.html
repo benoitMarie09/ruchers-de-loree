@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Les Ruchers de l’Orée - Nos produits</title>
+  <title>Les Ruchers de l'Orée - Nos produits</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -12,83 +12,259 @@
       <ul>
         <li><a href="index.html">Accueil</a></li>
         <li><a href="products.html" aria-current="page">Nos produits</a></li>
-        <li><a href="elevage.html" >Notre élevage</a></li>
+        <li><a href="elevage.html">Notre élevage</a></li>
         <li><a href="gallery.html">Photos</a></li>
         <li><a href="contact.html">Nous contacter</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="overlay">
-      <div class="hero-content">
-        <img src="images/beehive-icon.svg" alt="Logo ruche" class="logo" />
-        <h1>[product1]Nos produits</h1>
-        <h2>[product2]Découvrez nos produits bio</h2>
-        <p>[product3]quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit .</p>
-        <button id="scroll-to-products" aria-label="Voir nos produits">
-          &#x25BC;
-        </button>
+  <!-- Header spécifique produits -->
+  <section class="products-header">
+    <h1>[products-title]Nos Miels Bio</h1>
+    <p class="subtitle">[products-subtitle]Des Cévennes à votre table</p>
+    <p class="intro-text">[products-intro]Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </section>
+
+  <!-- Filtres -->
+  <section class="products-filters container">
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">Tous nos produits</button>
+      <button class="filter-btn" data-filter="miel">Miels</button>
+      <button class="filter-btn" data-filter="autres">Autres produits</button>
+    </div>
+  </section>
+
+  <!-- Grille des produits -->
+  <main class="products-main">
+    <div class="products-grid-new">
+      
+      <!-- Miel de fleurs sauvages 1 -->
+      <article class="product-card-new" data-category="miel ">
+        <div class="product-image-container">
+          <img src="images/miel-fleurs-sauvages1.jpg" alt="Pot de miel de fleurs sauvages" />
+          <div class="product-badge">Bio</div>
+        </div>
+        <div class="product-content-new">
+          <div class="product-type">Miel de fleurs</div>
+          <h3 class="product-title">Miel de Fleurs Sauvages</h3>
+          <p class="product-description-new">[honey-wildflowers1-desc]Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+          <div class="product-features">
+            <span class="feature-tag">250g & 500g</span>
+            <span class="feature-tag">Récolte été</span>
+            <span class="feature-tag">Cristallisation lente</span>
+          </div>
+          <div class="product-footer">
+            <span class="availability available">✓ Disponible</span>
+            <a href="[kuupanda-main-url]https://commande.kuupanda.com/producteur/7842/pro" target="_blank" class="contact-btn kuupanda">Acheter en ligne</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Miel de montagne -->
+      <article class="product-card-new" data-category="miel">
+        <div class="product-image-container">
+          <img src="images/miel-montagne.jpg" alt="Pot de miel de montagne" />
+          <div class="product-badge">Bio</div>
+        </div>
+        <div class="product-content-new">
+          <div class="product-type">Miel de montagne</div>
+          <h3 class="product-title">Miel de Montagne</h3>
+          <p class="product-description-new">[honey-mountain-desc]Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+          <div class="product-features">
+            <span class="feature-tag">250g & 500g</span>
+            <span class="feature-tag">Altitude > 800m</span>
+            <span class="feature-tag">Goût intense</span>
+          </div>
+          <div class="product-footer">
+            <span class="availability limited">⚠ Stock limité</span>
+            <a href="[kuupanda-main-url]https://commande.kuupanda.com/producteur/7842/pro" target="_blank" class="contact-btn kuupanda">Acheter en ligne</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Miel du Causse -->
+      <article class="product-card-new" data-category="miel">
+        <div class="product-image-container">
+          <img src="images/miel-causses.jpg" alt="Pot de miel des causses" />
+          <div class="product-badge">Bio</div>
+        </div>
+        <div class="product-content-new">
+          <div class="product-type">Miel de terroir</div>
+          <h3 class="product-title">Miel du Causse de Blandas</h3>
+          <p class="product-description-new">[honey-causses-desc]Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+          <div class="product-features">
+            <span class="feature-tag">250g & 500g</span>
+            <span class="feature-tag">Terroir unique</span>
+            <span class="feature-tag">Texture crémeuse</span>
+          </div>
+          <div class="product-footer">
+            <span class="availability available">✓ Disponible</span>
+            <a href="[kuupanda-main-url]https://commande.kuupanda.com/producteur/7842/pro" target="_blank" class="contact-btn kuupanda">Acheter en ligne</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Miel de printemps -->
+      <article class="product-card-new" data-category="miel ">
+        <div class="product-image-container">
+          <img src="images/miel-printemps.jpg" alt="Pot de miel de printemps" />
+          <div class="product-badge">Bio</div>
+        </div>
+        <div class="product-content-new">
+          <div class="product-type">Miel saisonnier</div>
+          <h3 class="product-title">Miel de Printemps</h3>
+          <p class="product-description-new">[honey-spring-desc]Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+          <div class="product-features">
+            <span class="feature-tag">250g & 500g</span>
+            <span class="feature-tag">Avril - Mai</span>
+            <span class="feature-tag">Goût délicat</span>
+          </div>
+          <div class="product-footer">
+            <span class="availability unavailable">✗ Épuisé</span>
+            <a href="contact.html" class="contact-btn contact">Me prévenir</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Miel de lavande -->
+      <article class="product-card-new" data-category="miel ">
+        <div class="product-image-container">
+          <img src="images/miel-lavande.jpg" alt="Pot de miel de lavande" />
+          <div class="product-badge">Bio</div>
+        </div>
+        <div class="product-content-new">
+          <div class="product-type">Miel de lavande</div>
+          <h3 class="product-title">Miel de Lavande</h3>
+          <p class="product-description-new">[honey-lavender-desc]Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+          <div class="product-features">
+            <span class="feature-tag">250g & 500g</span>
+            <span class="feature-tag">Juin - Juillet</span>
+            <span class="feature-tag">Arôme intense</span>
+          </div>
+          <div class="product-footer">
+            <span class="availability available">✓ Disponible</span>
+            <a href="[kuupanda-main-url]https://commande.kuupanda.com/producteur/7842/pro" target="_blank" class="contact-btn kuupanda">Acheter en ligne</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Pollen -->
+      <article class="product-card-new" data-category="autres">
+        <div class="product-image-container">
+          <img src="images/pollen.jpg" alt="Pot de pollen" />
+          <div class="product-badge">Bio</div>
+        </div>
+        <div class="product-content-new">
+          <div class="product-type">Produit de la ruche</div>
+          <h3 class="product-title">Pollen Frais</h3>
+          <p class="product-description-new">[pollen-desc]Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+          <div class="product-features">
+            <span class="feature-tag">100g & 200g</span>
+            <span class="feature-tag">Surgelé</span>
+            <span class="feature-tag">Riche en protéines</span>
+          </div>
+          <div class="product-footer">
+            <span class="availability limited">⚠ Sur commande</span>
+            <a href="contact.html" class="contact-btn contact">Commander</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Section informations -->
+  <section class="products-info">
+     
+      <!-- Informations commande -->
+      <div style="margin-top: 3rem; padding: 2rem; background: white; border-radius: 12px; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <h3 style="color: var(--dark-brown); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+          🛒 <span>Comment commander ?</span>
+        </h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+          <div>
+            <h4 style="color: #4CAF50; margin-bottom: 0.5rem;">🌐 Achat en ligne</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">[kuupanda-info]Lorem ipsum dolor sit amet, consectetur adipiscing elit. Commandez directement via notre partenaire Kuupanda.</p>
+            <a href="[kuupanda-main-url]https://commande.kuupanda.com/producteur/7842/pro" target="_blank" class="contact-btn kuupanda">Voir la boutique</a>
+          </div>
+          <div>
+            <h4 style="color: var(--primary-gold); margin-bottom: 0.5rem;">📞 Contact direct</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">[direct-contact-info]Lorem ipsum dolor sit amet, consectetur adipiscing elit. Contactez-nous pour des commandes spéciales.</p>
+            <a href="contact.html" class="contact-btn contact">Nous contacter</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="products" class="products-section">
-    <main class="products container">
-      <h2>Les miels disponibles</h2>
+  <script>
+    // Système de filtrage des produits
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const productCards = document.querySelectorAll('.product-card-new');
 
-      <div class="product-grid">
-        <!-- Produit 1 -->
-        <article class="product-card">
-          <img src="images/miel-fleurs-sauvages1.jpg" alt="Pot de miel de fleurs-sauvages1" />
-          <h3>Miel de fleurs sauvages1</h3>
-          <p class="description">[product5.1]consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-        </article>
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Retirer la classe active de tous les boutons
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          // Ajouter la classe active au bouton cliqué
+          this.classList.add('active');
 
-        <!-- Produit 2 -->
-        <article class="product-card">
-          <img src="images/miel-fleurs-sauvages2.jpg" alt="Pot de miel de fleurs-sauvages2" />
-          <h3>Miel de fleurs sauvages2</h3>
-          <p class="description">[product5.1]consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-        </article>
+          const filter = this.getAttribute('data-filter');
 
-        <!-- Produit 3 -->
-        <article class="product-card">
-          <img src="images/miel-montagne.jpg" alt="Pot de miel de montagne" />
-          <h3>Miel de montagne</h3>
-          <p class="description">[product5.2]consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-        </article>
+          productCards.forEach(card => {
+            if (filter === 'all') {
+              card.style.display = 'block';
+              setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+              }, 50);
+            } else {
+              const categories = card.getAttribute('data-category');
+              if (categories && categories.includes(filter)) {
+                card.style.display = 'block';
+                setTimeout(() => {
+                  card.style.opacity = '1';
+                  card.style.transform = 'translateY(0)';
+                }, 50);
+              } else {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                  card.style.display = 'none';
+                }, 300);
+              }
+            }
+          });
+        });
+      });
 
-        <!-- Produit 4 -->
-        <article class="product-card">
-          <img src="images/miel-causses.jpg" alt="Pot de miel des causses" />
-          <h3>Miel du Causse de Blandas</h3>
-          <p class="description">[product5.3]consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-        </article>
+      // Animation d'apparition des cartes
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
 
-        <!-- Produit 4 -->
-        <article class="product-card">
-          <img src="images/miel-printemps.jpg" alt="Pot de miel de primtemps" />
-          <h3>Miel de printemps</h3>
-          <p class="description">[product5.4]consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-        </article>
+      const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
 
-        <!-- Produit 5 -->
-        <article class="product-card">
-          <img src="images/miel-lavande.jpg" alt="Pot de miel de lavande" />
-          <h3>Miel de Lavande</h3>
-          <p class="description">[product5.6]consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-        </article>
+      // Initialiser l'animation pour toutes les cartes
+      productCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.6s ease';
+        cardObserver.observe(card);
+      });
+    });
+  </script>
 
-        <!-- Produit 6 -->
-        <article class="product-card">
-          <img src="images/pollen.jpg" alt="Pot de pollen" />
-          <h3>Pollen</h3>
-          <p class="description">[product5.5]consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-        </article>
-      </div>
-    </main>
-  </section>
   <script src="js/script.js"></script>
 </body>
 </html>
