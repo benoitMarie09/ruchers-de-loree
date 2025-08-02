@@ -1,0 +1,17 @@
+# Node.js
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# Outils CSS
+clean.css
+purged.css
+unused-classes.txt
+
+# Helix config locale (optionnel)
+.helix/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+*.log
