@@ -30,7 +30,7 @@
       >
         <div class="gallery-item" tabindex="0" role="button">
           <img
-            src="images/gallery1.jpg"
+            src="images/thumbnails/gallery1-thumb.jpg"
             alt="[photo1]consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore"
             loading="lazy"
           />
@@ -38,7 +38,7 @@
 
         <div class="gallery-item" tabindex="0" role="button">
           <img
-            src="images/gallery2.jpg"
+            src="images/thumbnails/gallery2-thumb.jpg"
             alt="[photo2]consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore"
             loading="lazy"
           />
@@ -46,7 +46,7 @@
 
         <div class="gallery-item" tabindex="0" role="button">
           <img
-            src="images/gallery3.jpg"
+            src="images/thumbnails/gallery3-thumb.jpg"
             alt="[photo3]consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore"
             loading="lazy"
           />
@@ -54,7 +54,7 @@
 
         <div class="gallery-item" tabindex="0" role="button">
           <img
-            src="images/gallery4.jpg"
+            src="images/thumbnails/gallery4-thumb.jpg"
             alt="[photo4]consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore"
             loading="lazy"
           />
@@ -62,7 +62,7 @@
 
         <div class="gallery-item" tabindex="0" role="button">
           <img
-            src="images/gallery5.jpg"
+            src="images/thumbnails/gallery1-thumb.jpg"
             alt="[photo4]consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore"
             loading="lazy"
           />
@@ -103,7 +103,7 @@
           this.lightboxImg = document.getElementById("lightbox-img");
           this.lightboxDesc = document.getElementById("lightbox-description");
           this.galleryItems = Array.from(
-            document.querySelectorAll(".gallery-item")
+            document.querySelectorAll(".gallery-item"),
           );
           this.currentIndex = 0;
 
@@ -192,7 +192,11 @@
           const img = item.querySelector("img");
 
           if (img) {
-            this.lightboxImg.src = img.src;
+            const optimizedSrc = img.src
+              .replace("thumbnails/", "optimized/")
+              .replace("-thumb", "");
+
+            this.lightboxImg.src = optimizedSrc;
             this.lightboxImg.alt = img.alt;
             this.lightboxDesc.textContent = img.alt;
           }
