@@ -435,6 +435,9 @@ header {
   transition: all var(--transition-smooth);
   position: relative;
   border: 1px solid rgba(184, 149, 106, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .product-card-new:hover {
@@ -474,6 +477,9 @@ header {
 }
 
 .product-content-new {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   padding: 1.5rem;
 }
 
@@ -505,10 +511,12 @@ header {
   gap: 0.5rem;
   margin-bottom: 1.5rem;
   flex-wrap: wrap;
+  flex-grow: 1;
 }
 
 .feature-tag {
   background: var(--accent-honey);
+  height: fit-content;
   color: var(--dark-brown);
   padding: 0.3rem 0.7rem;
   border-radius: 12px;
